@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function PATCH(req , {params} ){
     try {
-        const {id} = params;
+        const {id} = await params;
         const {name } = await req.json();
 
         if(!name){
@@ -27,7 +27,7 @@ export async function PATCH(req , {params} ){
 
 export async function DELETE(req , {params}){
     try {
-        const {id} = params
+        const {id} = await params
         const user = await prisma.user.findUnique({where:{id}});
         if(!user){
             return NextResponse.json({message : "User not found"} , {status : 404});
