@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgres/data
+    ports:
+      - 5432:5432 
+
+    environment:
+      - POSTGRES_DB=learnDb
+      - POSTGRES_USER=rushi
+      - POSTGRES_PASSWORD=rushiDB
+
+  adminer :
+      image: adminer
+      restart: always
+      ports:
+          - 8080:8080
