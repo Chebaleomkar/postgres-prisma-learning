@@ -37,3 +37,20 @@ Every day, I will add my daily learnings, code snippets, explanations, and any c
 1. Clone the repository:
    ```bash
    git clone : https://github.com/Chebaleomkar/postgres-prisma-learning.git
+
+
+## Commands For prisma
+
+- ### prisma schema update : 
+
+   After making the changes, you can run the migration again to apply the schema changes to your database.
+   - __Re-run the migration__
+
+   ```bash 
+   npx prisma migrate dev --name commit_message 
+
+ - __Generate the Prisma Client__:
+  After running the migration, regenerate the Prisma Client to ensure it has the latest schema definitions.
+  
+  ```bash
+  npx prisma generate

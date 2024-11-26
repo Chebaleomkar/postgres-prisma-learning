@@ -13,6 +13,7 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   todos     Todo[] 
+  Posts     Post[]
 }
 
 
@@ -24,4 +25,15 @@ model Todo {
   user        User     @relation(fields: [userId], references: [id]) 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model Post {
+  id        String @id @default(uuid()) @db.Uuid
+  caption   String @unique  @db.VarChar(100)
+  hashtags  String[]
+  imageLink String ?
+  userId    String  
+  user      User  @relation(fields: [userId] , references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime  @updatedAt
 }
